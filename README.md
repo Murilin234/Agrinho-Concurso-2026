@@ -49,7 +49,6 @@ Os conteúdos textuais e conceituais do portal foram construídos de forma 100% 
 * [Infoteca - Reciclagem Agrícola de Manipueira e Casca de Mandioca](https://www.infoteca.cnptia.embrapa.br/bitstream/doc/912040/1/manipuera.pdf)
 * [Redalyc.org - O Processo de Logística Reversa de Embalagens de Agrotóxicos](https://www.redalyc.org/pdf/878/87823354009.pdf)
 * [Admin,+artigo - Principais Sistemas de Captação de Água da Chuva](https://seer.ufu.br/index.php/revextensao/article/viewFile/37061/pdf)
-* 
 
 ---
 
