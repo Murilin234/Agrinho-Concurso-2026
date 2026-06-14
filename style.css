@@ -58,12 +58,18 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding-right: 40px;
+    justify-content: space-between; 
+    padding: 0 40px; 
     border-bottom: 6px solid var(--verde-claro);
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
-
+.header-titulo {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
 /* ALTERAÇÃO: O seletor '.header-banner' antigo foi totalmente removido daqui */
 
 /* Estiliza o botão de atalho para o programa interativo dentro do cabeçalho */
