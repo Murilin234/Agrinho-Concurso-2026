@@ -69,9 +69,11 @@ body {
     font-weight: bold;
     letter-spacing: 0.5px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    /* Garante a centralização perfeita no meio da barra */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
-/* ALTERAÇÃO: O seletor '.header-banner' antigo foi totalmente removido daqui */
-
 /* Estiliza o botão de atalho para o programa interativo dentro do cabeçalho */
 .nav-btn-interativo {
     position: relative;
