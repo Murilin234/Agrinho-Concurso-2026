@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Agro Forte, Futuro Sustentável</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <button id="dark-mode-toggle" class="dark-mode-btn" onclick="toggleDarkMode()">
+        Modo Escuro
+    </button>
+
+    <header class="site-header">
+        <button class="nav-btn-interativo" onclick="mostrarPagina('interativo')">PROGRAMA INTERATIVO</button>
+    </header>
+
+    <main class="container">
+        
+        <section id="pagina-principal" class="page active">
+            
+            <div class="secao-introducao">
+                <h2>Do Descartável ao Sustentável: O Futuro do Campo</h2>
+                <p>Olá!! Bem-vindo ao nosso site dedicado à conscientização ambiental e às práticas inovadoras e sustentáveis no cenário agrícola. O projeto <strong>Agro Forte, Futuro Sustentável</strong> tem como objetivo: mostrar que os materiais recicláveis descartados no dia a dia da lavoura e do manejo rural, não precisam obter o triste fim de se tornarem resíduos, mas sim, tornar-se o começo de novas soluções ambientais.</p>
+                <p>Explore os nossos projetos abaixo para entender como a criatividade, a tecnologia e o respeito à natureza trabalham juntos para transformar resíduos em ferramentas valiosas, gerando economia para o produtor e preservação para o nosso planeta.</p>
+            </div>
+
+            <div class="card-grid">
+                
+                <div class="card">
+                    <div class="card-img">Manejo de Resíduos</div>
+                    <div class="card-content">
+                        <p class="card-texto-principal">Reaproveitamento de Resíduos e Subprodutos da Mandioca</p>
+                        <p class="card-texto-secundario">Como transformar a manipueira descartada em adubo orgânico de qualidade.</p>
+                        <button class="saiba-mais" onclick="carregarDetalhe('mandioca')">saiba mais:</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">Logística Reversa</div>
+                    <div class="card-content">
+                        <p class="card-texto-principal">Logística Reversa no Agronegócio: Sistema Campo Limpo</p>
+                        <p class="card-texto-secundario">O descarte correto e seguro de embalagens plásticas vazias no campo.</p>
+                        <button class="saiba-mais" onclick="carregarDetalhe('campolimpo')">saiba mais:</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">Captação Hídrica</div>
+                    <div class="card-content">
+                        <p class="card-texto-principal">Cisternas e Calhas: Captação de Água nas Coberturas Rurais</p>
+                        <p class="card-texto-secundario">Reutilizando bombonas descartáveis para criar sistemas de irrigação.</p>
+                        <button class="saiba-mais" onclick="carregarDetalhe('cisternas')">saiba mais:</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="pagina-detalhe" class="page">
+            <button class="btn-voltar" onclick="mostrarPagina('principal')">Voltar ao Início</button>
+            
+            <div class="detalhe-layout">
+                <div class="foto-perfil-placeholder">Eco Campo</div>
+                
+                <div class="detalhe-texto">
+                    <h2 id="detalhe-titulo">Título do Projeto</h2>
+                    <hr class="linha-decorativa">
+                    <div id="detalhe-corpo"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pagina-interativo" class="page">
+            <button class="btn-voltar" onclick="mostrarPagina('principal')">Voltar ao Início</button>
+            
+            <div class="interactive-box">
+                <h2>TRANSFORME O DESCARTÁVEL EM SUSTENTÁVEL</h2>
+                <p class="interativo-subtitulo">Selecione um resíduo comum para identificar sua utilidade sustentável no campo:</p>
+                
+                <div class="select-container">
+                    <select id="residuo-select" onchange="identificarResiduo()">
+                        <option value="">-- Selecione um material descartável --</option>
+                        <option value="pet">Garrafas PET (Refrigerante/Água)</option>
+                        <option value="pneu">Pneus Velhos de Maquinário</option>
+                        <option value="palete">Paletes de Madeira Danificados</option>
+                        <option value="organico">Restos Orgânicos / Esterco</option>
+                    </select>
+                </div>
+
+                <div id="resultado-interativo" class="resultado-box hidden">
+                    <h3>Diagnóstico de Sustentabilidade</h3>
+                    <p><strong>Solução Ecológica:</strong> <span id="res-solucao"></span></p>
+                    <p><strong>Impacto no Agro Forte:</strong> <span id="res-impacto"></span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="secao-sobre" class="sobre-mim animar-entrada">
+            <h3>Mais sobre mim:</h3>
+            <div class="linhas-texto">
+                <p>Ola!! Me chamo Murilo. Atualmente estou cursando o 3° do ensino médio, e pretendo frequentar uma faculdade com o curso Ciência da Computação, tendo em vista o destino final de me tornar um programador. Já fiz alguns projetos no Scratch e Github com ajuda da plataforma Alura. Domino parcialmente programação por bloco e Phyton.</p>
+                
+        </section>
+
+        <section id="secao-contato" class="contato animar-entrada">
+            <h3>Entre em contato por meio de:</h3>
+            <div class="contato-info">
+                <p><strong>Email:</strong> murilodeandradefigueiredo@gmail.com</p>
+                <p><strong>Github:</strong> github.com/Murilin234</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        © Desenvolvido por Murilo
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

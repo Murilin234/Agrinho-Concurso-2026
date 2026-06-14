@@ -1,0 +1,442 @@
+/* Configurações Globais e Variáveis */
+:root {
+    --verde-escuro: #1b5e20;
+    --verde-claro: #4caf50;
+    --verde-destaque-box: #81c784;
+    
+    --bg-principal: #ffffff;
+    --bg-container: #ffffff;
+    --bg-cards: #ffffff;
+    --texto-principal: #222222;
+    --texto-secundario: #555555;
+    --bg-linhas-texto: #fafafa;
+    --borda-card: #1b5e20;
+    
+    --transicao-suave: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Variação de Cores do Modo Escuro */
+body.dark-mode {
+    --bg-principal: #121212;
+    --bg-container: #1e1e1e;
+    --bg-cards: #252525;
+    --texto-principal: #f5f5f5;
+    --texto-secundario: #b0b0b0;
+    --bg-linhas-texto: #2d2d2d;
+    --borda-card: #4caf50;
+    --verde-destaque-box: #2e7d32;
+}
+
+/* Reseta margens, preenchimentos e padroniza a fonte base para todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Define a cor de fundo e do texto do corpo da página, permitindo rolagem suave */
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    overflow-x: hidden;
+    transition: var(--transicao-suave);
+}
+
+/* Centraliza o conteúdo principal e define um limite máximo de largura na tela */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Cabeçalho */
+/* ALTERAÇÃO: O background agora usa um gradiente CSS moderno para substituir a imagem deletada */
+.site-header {
+    background: linear-gradient(135deg, var(--verde-escuro), #0f3d11); 
+    min-height: 260px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 40px;
+    border-bottom: 6px solid var(--verde-claro);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* ALTERAÇÃO: O seletor '.header-banner' antigo foi totalmente removido daqui */
+
+/* Estiliza o botão de atalho para o programa interativo dentro do cabeçalho */
+.nav-btn-interativo {
+    position: relative;
+    z-index: 10;
+    background-color: #ffffff;
+    color: #000000;
+    border: 2.5px solid #000000;
+    padding: 14px 28px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 13px;
+    letter-spacing: 0.8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: var(--transicao-suave);
+}
+
+/* Cria um efeito de flutuação e elevação ao passar o mouse sobre o botão interativo */
+.nav-btn-interativo:hover {
+    background-color: #e5e5e5;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Botão Dark Mode */
+/* Fixa o botão flutuante do modo escuro no canto inferior direito da tela */
+.dark-mode-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 100;
+    background-color: var(--verde-escuro);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: var(--transicao-suave);
+}
+
+/* Aumenta levemente o botão do modo escuro e muda sua cor no estado hover */
+.dark-mode-btn:hover {
+    transform: scale(1.08);
+    background-color: var(--verde-claro);
+}
+
+/* Introdução */
+/* Estiliza a caixa de introdução com borda lateral, preenchimento e cantos arredondados */
+.secao-introducao {
+    background-color: var(--bg-linhas-texto);
+    padding: 40px;
+    border-radius: 24px;
+    border-left: 6px solid var(--verde-claro);
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    transition: var(--transicao-suave);
+}
+
+/* Define a cor do título da introdução dependendo do tema claro/escuro */
+.secao-introducao h2 {
+    color: var(--verde-escuro);
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+body.dark-mode .secao-introducao h2 {
+    color: var(--verde-claro);
+}
+
+/* Estiliza os parágrafos da introdução com alinhamento justificado e espaçamento de linhas */
+.secao-introducao p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--texto-secundario);
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* Páginas */
+/* Oculta as seções por padrão e as exibe quando ativadas com animação de fade-in */
+.page {
+    display: none;
+}
+.page.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Configura os quadros-chave da animação de surgimento vertical */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Nova classe adicionada para animar elementos avulsos da página inicial */
+.animar-entrada {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Cards */
+/* Organiza os cards lado a lado com espaçamento flexível */
+.card-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 35px;
+    margin-bottom: 60px;
+}
+
+/* Estiliza cada card individual com borda, cantos arredondados e preenchimento */
+.card {
+    flex: 1;
+    border: 3px solid var(--borda-card);
+    border-radius: 24px;
+    overflow: hidden;
+    padding: 25px;
+    background: var(--bg-cards);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: var(--transicao-suave);
+}
+
+/* Eleva o card e aumenta sua sombra ao passar o mouse sobre ele */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 30px rgba(0,0,0,0.15);
+}
+
+/* ALTERAÇÃO: O card-img agora funciona como um bloco gradiente estilizado com o título do tema, sem carregar nenhuma tag <img> */
+.card-img {
+    background: linear-gradient(135deg, var(--verde-escuro), #0f3d11);
+    color: white;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 16px;
+    border: 2px solid #000;
+    margin-bottom: 22px;
+}
+
+/* Estiliza o texto principal informativo do card */
+.card-content .card-texto-principal {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--texto-principal);
+}
+
+/* Estiliza a descrição secundária do card */
+.card-content .card-texto-secundario {
+    font-size: 14px;
+    color: var(--texto-secundario);
+    margin-bottom: 20px;
+}
+
+/* Estiliza o botão de texto "saiba mais" no rodapé do card */
+.saiba-mais {
+    background: none;
+    border: none;
+    color: var(--verde-claro);
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-end;
+    text-align: right;
+    font-size: 15px;
+    transition: var(--transicao-suave);
+}
+
+/* Desloca levemente o botão "saiba mais" para a direita no estado hover */
+.saiba-mais:hover {
+    color: var(--verde-escuro);
+    transform: translateX(6px);
+}
+
+/* Estilo do link externo azul solicitado */
+.link-saiba-mais-externo {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+    transition: opacity 0.2s;
+}
+
+/* Sublinha e altera opacidade do link externo ao passar o mouse */
+.link-saiba-mais-externo:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* Caixa Interativa */
+/* Desenha a caixa de diagnóstico com fundo gradiente, bordas curvas e sombra esverdeada */
+.interactive-box {
+    background: linear-gradient(135deg, var(--verde-destaque-box), var(--verde-claro));
+    color: white;
+    padding: 60px 40px;
+    border-radius: 28px;
+    text-align: center;
+    margin: 50px 0;
+    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+}
+
+/* Ajusta a cor do texto da caixa interativa quando o modo escuro não está ativo */
+body:not(.dark-mode) .interactive-box {
+    color: #0b330e;
+}
+
+/* Estiliza o título da caixa de simulação interativa */
+.interactive-box h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+/* Estiliza o subtítulo explicativo da caixa interativa */
+.interativo-subtitulo {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* Estiliza e define o layout do campo de seleção (dropdown) de resíduos */
+#residuo-select {
+    padding: 16px 24px;
+    font-size: 17px;
+    border-radius: 14px;
+    width: 85%;
+    max-width: 480px;
+    outline: none;
+    background-color: white;
+}
+
+/* Estiliza a caixa que exibe o resultado do diagnóstico com borda lateral escura */
+.resultado-box {
+    background-color: var(--bg-cards);
+    color: var(--texto-principal);
+    padding: 30px;
+    border-radius: 18px;
+    margin-top: 35px;
+    text-align: left;
+    border-left: 8px solid var(--verde-escuro);
+}
+
+/* Detalhes */
+/* Estiliza o botão estrutural de navegação para retornar às telas anteriores */
+.btn-voltar {
+    background-color: var(--bg-linhas-texto);
+    color: var(--texto-principal);
+    border: 1px solid #ccc;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* Cria o alinhamento em duas colunas da tela de exibição de projetos expandidos */
+.detalhe-layout {
+    display: flex;
+    gap: 50px;
+    margin: 40px 0;
+}
+
+/* ALTERAÇÃO: O seletor foi ajustado para agir puramente como caixa de texto centralizado em gradiente, sem tag <img> */
+.foto-perfil-placeholder {
+    width: 250px;
+    height: 420px;
+    border: 4px solid var(--verde-claro);
+    border-radius: 24px;
+    background: linear-gradient(180deg, var(--bg-linhas-texto), var(--verde-escuro));
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--texto-principal);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Define que o texto da coluna direita da página de detalhes ocupe o restante da largura */
+.detalhe-texto {
+    flex-grow: 1;
+}
+
+/* Estiliza os parágrafos de texto da área de detalhamento científico */
+.detalhe-texto p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--texto-secundario);
+    margin-bottom: 15px;
+}
+
+/* Desenha a linha divisória pontilhada decorativa para separar seções na página de detalhes */
+.linha-decorativa {
+    border: none;
+    border-top: 2px dashed var(--texto-secundario);
+    margin: 25px 0;
+}
+
+/* Sobre Mim e Contato */
+/* Adiciona espaçamento superior e linha divisória pontilhada nas seções institucionais de rodapé */
+.sobre-mim, .contato {
+    margin-top: 70px;
+    border-top: 2.5px dashed var(--verde-claro);
+    padding-top: 45px;
+}
+
+/* Estiliza os subtítulos das caixas de apresentação pessoal e contatos */
+.sobre-mim h3, .contato h3 {
+    margin-bottom: 25px;
+    color: var(--verde-claro);
+    font-size: 26px;
+}
+
+/* Cria um fundo cinza com cantos arredondados para agrupar os blocos textuais */
+.linhas-texto {
+    background-color: var(--bg-linhas-texto);
+    padding: 35px;
+    border-radius: 18px;
+}
+
+/* Formata o alinhamento e o espaçamento dos parágrafos institucionais */
+.linhas-texto p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-size: 16px;
+    color: var(--texto-secundario);
+    text-align: justify;
+}
+
+/* Formata o espaçamento dos dados de contatos na base da página inicial */
+.contato-info p {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+/* Estiliza o rodapé de fechamento do portal com barra superior de destaque */
+.site-footer {
+    background-color: var(--verde-claro);
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    font-weight: bold;
+    margin-top: 80px;
+    border-top: 4px solid var(--verde-escuro);
+}
+
+/* Classe utilitária para esconder blocos no documento */
+.hidden {
+    display: none;
+}
+
+/* Responsividade */
+/* Ajusta o espaçamento das grades e o tamanho do cabeçalho para telas médias (Tablets) */
+@media (max-width: 900px) {
+    .card-grid { gap: 25px; }
+    .site-header { min-height: 200px; }
+    .secao-introducao { padding: 30px; }
+}
+
+/* Converte grades horizontais em empilhamento vertical para telas pequenas (Celulares) */
+@media (max-width: 600px) {
+    .site-header { min-height: 180px; justify-content: center; padding: 15px; }
+    .nav-btn-interativo { width: 100%; font-size: 11px; padding: 12px 10px; }
+    .secao-introducao { padding: 20px; margin-bottom: 30px; }
+    .card-grid { flex-direction: column; gap: 30px; }
+    .detalhe-layout { flex-direction: column; align-items: center; }
+    .foto-perfil-placeholder { width: 100%; max-width: 280px; height: 360px; }
+}
